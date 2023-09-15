@@ -1,5 +1,5 @@
 import './App.css';
-import Explorer from './components/explorer/explorer';
+import Explorer from './components/explorer';
 
 function App() {
   return (
