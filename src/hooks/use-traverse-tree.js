@@ -1,26 +1,39 @@
 const useTraverseTree = () => {
+  function insertNode(tree, folderId, item, isFolder) {
+    console.log(tree);
 
-    function insertNode (tree,folderId,item,isFolder) {
-      if (tree.id === folderId && tree.isFolder){
-        tree.items.unshift({
-            id: new Date().getTime(),
-            name: item,
-            isFolder,
-            items:[]
-        });
+    let filterNodeName = tree.items.some((node) => node.name === item);
 
-        return tree;
-      }
-
-      let latestNode = [];
-      latestNode = tree.items.map((obj) => {
-        return insertNode(obj, folderId, item, isFolder);
+    if (tree.id === folderId && tree.isFolder && !filterNodeName) {
+      tree.items.unshift({
+        id: new Date().getTime(),
+        name: item,
+        isFolder,
+        items: [],
       });
 
-      return {...tree, items: latestNode};
-    };
+      return tree;
+    }
 
-    return {insertNode};
-}
+    let latestNode = [];
+    latestNode = tree.items.map((obj) => {
+      return insertNode(obj, folderId, item, isFolder);
+    });
 
-export default useTraverseTree
+    return { ...tree, items: latestNode };
+  }
+
+  function deleteNode(tree, folderId, isFolder) {
+    if (isFolder) {
+      let updateFolder = tree.items.filter((node) => node.id !== folderId);
+      return { ...tree, items: updateFolder };
+    } else {
+      let updateFile = tree.items.filter((node) => node.id !== folderId);
+      return { ...tree, items: updateFile };
+    }
+  }
+
+  return { insertNode, deleteNode };
+};
+
+export default useTraverseTree;

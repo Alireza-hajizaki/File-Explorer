@@ -1,20 +1,20 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-.container{
+.container {
   width: 350px;
   height: 100vh;
   min-height: screen;
   background-color: #191919;
-  color: #E9F1F1;
+  color: #e9f1f1;
   padding: 1rem;
 }
-.mr{
+.mr {
   margin-right: 0.5rem;
 }
-.folder{
+.folder {
   margin-top: 6px;
   background-color: #343436;
   display: flex;
@@ -30,7 +30,9 @@
   margin-top: 5px;
   padding-left: 5px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 240px;
 }
 .file > span {
   margin: 0 5px 2px 5px;
@@ -38,18 +40,18 @@
   align-items: center;
   gap: 0.5rem;
 }
-.editions{
+.editions {
   display: flex;
   gap: 0.5rem;
   margin-right: 0.5rem;
   justify-content: center;
   align-items: center;
 }
-.tooltip{
+.tooltip {
   cursor: pointer;
   position: relative;
 }
-.tooltiptext{
+.tooltiptext {
   background-color: #fff;
   width: 70px;
   color: #000;
@@ -64,8 +66,8 @@
   opacity: 0;
   transition: 0.3s;
 }
-.tooltip .tooltiptext::after{
-  content: '';
+.tooltip .tooltiptext::after {
+  content: "";
   position: absolute;
   top: 50%;
   left: 99%;
@@ -74,31 +76,31 @@
   border-style: solid;
   border-color: transparent transparent transparent #333;
 }
-.tooltip:hover .tooltiptext{
+.tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
   left: 105%;
 }
-.main-tile{
+.main-tile {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .inputContainer {
-display: flex;
-align-items: center;
-gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .inputContainer > span {
   margin-top: 5px;
 }
 .inputContainer__input {
-margin: 6px 0 0 0;
-padding: 5px;
-display: flex;
-border: 1px solid lightgray;
-align-items: center;
-justify-content: space-between;
-cursor: pointer;
+  margin: 6px 0 0 0;
+  padding: 5px;
+  display: flex;
+  border: 1px solid lightgray;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
